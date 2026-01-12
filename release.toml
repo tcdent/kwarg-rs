@@ -1,0 +1,36 @@
+# cargo-release configuration
+# https://github.com/crate-ci/cargo-release
+
+# Allow releases from the main branch
+allow-branch = ["main", "master"]
+
+# Sign commits
+sign-commit = false
+sign-tag = false
+
+# Create git tag for releases
+tag = true
+tag-prefix = "v"
+tag-message = "Release {{version}}"
+
+# Commit message for version bumps
+pre-release-commit-message = "chore: release {{version}}"
+
+# Push changes to remote
+push = true
+push-remote = "origin"
+
+# Publish to crates.io
+publish = true
+
+# Run `cargo build` before release to verify
+verify = true
+
+# Shared release behavior
+shared-version = true
+
+# Pre-release replacements (update version references in files)
+[[pre-release-replacements]]
+file = "README.md"
+search = 'kwarg = "[^"]*"'
+replace = 'kwarg = "{{version}}"'
