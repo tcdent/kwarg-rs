@@ -609,7 +609,9 @@ mod inner {
         }
 
         pub fn create_with_offset(base: i32, offset: i32) -> Self {
-            PubStruct { value: base + offset }
+            PubStruct {
+                value: base + offset,
+            }
         }
     }
 
@@ -761,7 +763,9 @@ where
         T: Clone,
     {
         let _ = scale;
-        WhereStruct { value: T::default() }
+        WhereStruct {
+            value: T::default(),
+        }
     }
 }
 
