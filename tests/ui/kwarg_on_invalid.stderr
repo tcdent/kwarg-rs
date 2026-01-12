@@ -1,0 +1,7 @@
+error: #[kwarg] can only be applied to functions or impl blocks
+ --> tests/ui/kwarg_on_invalid.rs:6:1
+  |
+6 | #[kwarg]
+  | ^^^^^^^^
+  |
+  = note: this error originates in the attribute macro `kwarg` (in Nightly builds, run with -Z macro-backtrace for more info)

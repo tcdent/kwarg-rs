@@ -1,0 +1,13 @@
+error: kwarg: missing required parameter `age`
+  --> tests/ui/missing_param.rs:5:1
+   |
+ 5 |   #[kwarg]
+   |   ^^^^^^^^
+...
+12 |       let _ = kwargs!(greet =>
+   |  _____________-
+13 | |         name: "Alice"
+14 | |     );
+   | |_____- in this macro invocation
+   |
+   = note: this error originates in the macro `__kwarg_greet` which comes from the expansion of the macro `kwargs` (in Nightly builds, run with -Z macro-backtrace for more info)
