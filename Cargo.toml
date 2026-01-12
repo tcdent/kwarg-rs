@@ -2,11 +2,17 @@
 name = "kwarg"
 version = "0.1.0-alpha.1"
 edition = "2021"
+rust-version = "1.56"
+authors = ["Travis Dent <tcdent@gmail.com>"]
 description = "Keyword arguments for Rust functions via proc macros"
 license = "MIT"
 repository = "https://github.com/tcdent/kwarg-rs"
+homepage = "https://github.com/tcdent/kwarg-rs"
+documentation = "https://docs.rs/kwarg"
+readme = "README.md"
 keywords = ["macro", "keyword-arguments", "kwargs", "proc-macro"]
 categories = ["development-tools::procedural-macro-helpers"]
+exclude = [".github/", "tests/", "examples/", "release.toml"]
 
 [lib]
 proc-macro = true
