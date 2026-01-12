@@ -256,9 +256,7 @@ fn process_function(func: ItemFn) -> TokenStream2 {
 fn process_impl_block(mut impl_block: ItemImpl) -> TokenStream2 {
     // Extract the type name
     let type_name = match impl_block.self_ty.as_ref() {
-        syn::Type::Path(type_path) => {
-            type_path.path.segments.last().map(|seg| seg.ident.clone())
-        }
+        syn::Type::Path(type_path) => type_path.path.segments.last().map(|seg| seg.ident.clone()),
         _ => None,
     };
 
@@ -278,9 +276,11 @@ fn process_impl_block(mut impl_block: ItemImpl) -> TokenStream2 {
     for item in &mut impl_block.items {
         if let ImplItem::Fn(method) = item {
             // Skip methods with self receiver for now (instance methods)
-            let has_self = method.sig.inputs.iter().any(|arg| {
-                matches!(arg, FnArg::Receiver(_))
-            });
+            let has_self = method
+                .sig
+                .inputs
+                .iter()
+                .any(|arg| matches!(arg, FnArg::Receiver(_)));
 
             if has_self {
                 // For instance methods, we'd need a different approach
