@@ -1,0 +1,16 @@
+error: recursion limit reached while expanding `__kwarg_greet!`
+  --> tests/ui/unknown_param.rs:5:1
+   |
+ 5 |   #[kwarg]
+   |   ^^^^^^^^
+...
+12 |       let _ = kwargs!(greet =>
+   |  _____________-
+13 | |         name: "Alice",
+14 | |         age: 30,
+15 | |         unknown: "value"
+16 | |     );
+   | |_____- in this macro invocation
+   |
+   = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`$CRATE`)
+   = note: this error originates in the macro `__kwarg_greet` which comes from the expansion of the macro `kwargs` (in Nightly builds, run with -Z macro-backtrace for more info)
